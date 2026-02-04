@@ -32,5 +32,5 @@ Frontend: Angular
 
 Database: Relational Database
 
-Project Management: Scrum with Trello
+Project Management: Scrum with [Trello](https://trello.com/invite/b/696f297c36e70018d3f233b2/ATTI19dfb0717a7b2a0b1992adfc04f799e111786B2D/swen-261-cafe-management)
 
