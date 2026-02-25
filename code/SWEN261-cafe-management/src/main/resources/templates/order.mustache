@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Orders</title>
+</head>
+<body>
+
+<h1>Orders</h1>
+
+{{#hasOrders}}
+
+    <h2>Active Orders</h2>
+
+    {{#activeOrders}}
+        <p>
+            Order ID: {{orderId}} <br>
+            Order Status: {{orderStatus}} <br>
+            Message: {{orderMessage}}
+        </p>
+        <hr>
+    {{/activeOrders}}
+
+    <h2>Completed Orders</h2>
+    {{#completedOrders}}
+        <p>
+            Order ID: {{orderId}} <br>
+            Order Status: {{orderStatus}}
+        </p>
+        <hr>
+    {{/completedOrders}}
+
+{{/hasOrders}}
+
+</body>
+</html>
