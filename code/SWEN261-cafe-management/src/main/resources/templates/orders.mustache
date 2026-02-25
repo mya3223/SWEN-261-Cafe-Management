@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>Orders</title>
 </head>
@@ -15,7 +15,8 @@
         <p>
             Order ID: {{orderId}} <br>
             Order Status: {{orderStatus}} <br>
-            Message: {{orderMessage}}
+            Message: {{ordermessage}}
+
         </p>
         <hr>
     {{/activeOrders}}
@@ -24,7 +25,9 @@
     {{#completedOrders}}
         <p>
             Order ID: {{orderId}} <br>
-            Order Status: {{orderStatus}}
+            Order Status: {{orderStatus}}<br>
+            Message: {{ordermessage}}
+
         </p>
         <hr>
     {{/completedOrders}}

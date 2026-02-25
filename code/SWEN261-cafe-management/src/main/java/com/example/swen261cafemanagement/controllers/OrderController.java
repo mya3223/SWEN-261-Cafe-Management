@@ -18,7 +18,7 @@ public class OrderController {
         this.orderService = orderService;
     }
 
-    @RequestMapping("/order")
+    @RequestMapping("/orders")
     public String Order(Model model) {
         List<Order> orders = orderService.getAllOrders();
 
@@ -37,6 +37,6 @@ public class OrderController {
         model.addAttribute("completedOrders", completed);
         model.addAttribute("hasOrders", !orders.isEmpty());
 
-        return "order";
+        return "orders";
     }
 }
