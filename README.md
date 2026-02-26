@@ -34,7 +34,10 @@ Database: Relational Database
 
 Project Management: Scrum with [Trello](https://trello.com/invite/b/696f297c36e70018d3f233b2/ATTI19dfb0717a7b2a0b1992adfc04f799e111786B2D/swen-261-cafe-management)
 
-[Functional Requirements Document](https://docs.google.com/document/d/1eMc52Au5xIlwfVMOMQQlgS9R2C_tn3YSlAWE2lU5fKE/edit?tab=t.0#heading=h.zdvtvb4foy3e)
+These can be found either through their links or through the Documentation Folder:
+  [Functional Requirements Document](https://docs.google.com/document/d/1eMc52Au5xIlwfVMOMQQlgS9R2C_tn3YSlAWE2lU5fKE/edit?tab=t.0#heading=h.zdvtvb4foy3e)
 
-[Tracebility Matrix Spreadsheet](https://docs.google.com/spreadsheets/d/1XThwFhMMYKYLKBlE7lp5Z0-wSb4M6e3bc1sb83COF7k/edit?gid=0#gid=0)
+  [Tracebility Matrix Spreadsheet](https://docs.google.com/spreadsheets/d/1XThwFhMMYKYLKBlE7lp5Z0-wSb4M6e3bc1sb83COF7k/edit?gid=0#gid=0)
+
+  [Glossary of terms](https://docs.google.com/spreadsheets/d/1eluYVYd1kAN4puDzniHQ9QWfnva_sZ4aHyV88grYhw8/edit?gid=0#gid=0)
 
