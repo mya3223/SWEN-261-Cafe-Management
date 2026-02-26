@@ -42,3 +42,5 @@ These can be found either through their links or through the Documentation Folde
 
   [Glossary of terms](https://docs.google.com/spreadsheets/d/1eluYVYd1kAN4puDzniHQ9QWfnva_sZ4aHyV88grYhw8/edit?gid=0#gid=0)
 
+  [UML](https://lucid.app/lucidchart/55085f5a-c088-4a4d-9449-aad70fc40195/edit?invitationId=inv_d6bde052-db9e-4956-a122-efc43a3172a9)
+
