@@ -1,17 +1,18 @@
-package com.example.swen261cafemanagement.service;
+package com.example.assignment1.service;
 
-import com.example.swen261cafemanagement.models.Order;
+import com.example.assignment1.models.Order;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class OrderService {
-
-    public List<Order> getAllOrders() {
-        return List.of(
-                new Order("ORD-001", "Pending Order", "Preparing order"),
-                new Order("ORD-002", "In Progress", "On the way"),
-                new Order("ORD-003", "Delivered", "Completed")
-        );
+    private ArrayList<Order> orders = new ArrayList<>();
+    public void createOrder(Order order) {
+        orders.add(order);
+    }
+    public ArrayList<Order> getAllOrders() {
+        return orders;
     }
 }
