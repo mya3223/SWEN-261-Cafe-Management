@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang = "en">
 <head>
     <title>Orders</title>
 </head>
@@ -14,9 +14,8 @@
     {{#activeOrders}}
         <p>
             Order ID: {{orderId}} <br>
-            Order Status: {{orderStatus}} <br>
-            Message: {{ordermessage}}
-
+            Order Status: {{status}} <br>
+            Message: {{orderMessage}}
         </p>
         <hr>
     {{/activeOrders}}
@@ -25,14 +24,29 @@
     {{#completedOrders}}
         <p>
             Order ID: {{orderId}} <br>
-            Order Status: {{orderStatus}}<br>
-            Message: {{ordermessage}}
-
+            Order Status: {{status}}
         </p>
         <hr>
     {{/completedOrders}}
 
 {{/hasOrders}}
+<p>
+    Order ID: {{orderId}} <br>
+    Items: {{items}} <br>
+    Total Price: {{totalPrice}} <br>
+    Status: {{status}}
+</p>
+<form action="/saveorder" method="post">
+
+    <label>Items</label>
+    <input type="text" name="items">
+
+    <label>Total Price</label>
+    <input type="number" name="totalPrice">
+
+    <button type="submit">Create Order</button>
+
+</form>
 
 </body>
 </html>
