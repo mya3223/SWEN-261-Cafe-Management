@@ -67,3 +67,32 @@ US-004: Viewing Pricing Packages
 US-006: User Login and Session (Optional)
 
 US-009: Order Search and Filter
+
+# Work Distribution
+
+Each team member contributed to both backend and frontend tasks as required:
+
+Meera:
+
+US-002 (Backend support – order listing)
+
+Syed:
+
+US-009 (Search & Filter – Backend)
+
+
+Mouza:
+
+US-001 (Order Creation – Backend & Frontend)
+
+Francois:
+
+US-006 (Login – Backend)
+
+Assisted with testing and integration
+
+Ali:
+
+US-004 (Pricing Packages – Backend)
+
+Assisted in frontend integration
