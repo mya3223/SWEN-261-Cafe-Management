@@ -1,11 +1,14 @@
 package com.example.assignment1.models;
 
+import java.time.LocalDate;
+
 public class Order {
     private String orderId;
     private String orderMessage;
     private String items;
     private String status;
     private double totalPrice;
+    private LocalDate createdAt;
 
     public Order() {}
 
@@ -15,6 +18,7 @@ public class Order {
         this.items = items;
         this.status = status;
         this.totalPrice = totalPrice;
+        this.createdAt = LocalDate.now();
     }
 
     public String getItems(){
@@ -55,5 +59,13 @@ public class Order {
 
     public boolean isCompleted() {
         return "Delivered".equalsIgnoreCase(status);
+    }
+
+    public LocalDate getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDate createdAt) {
+        this.createdAt = createdAt; 
     }
 }
