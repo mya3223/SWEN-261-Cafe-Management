@@ -44,3 +44,26 @@ These can be found either through their links or through the Documentation Folde
 
   [UML](https://lucid.app/lucidchart/55085f5a-c088-4a4d-9449-aad70fc40195/edit?invitationId=inv_d6bde052-db9e-4956-a122-efc43a3172a9)
 
+# Sprint Plan (10 Days)
+
+Days 1–2: Setup + task breakdown
+
+Days 3–5: Backend development
+
+Days 6–8: Frontend development
+
+Days 9–10: Testing + integration + documentation
+
+# Implemented User Stories (Assignment 2)
+
+For Assignment 2, the following user stories were selected and distributed among the team:
+
+US-001: Creation of Order
+
+US-002: Viewing Orders
+
+US-004: Viewing Pricing Packages
+
+US-006: User Login and Session (Optional)
+
+US-009: Order Search and Filter
