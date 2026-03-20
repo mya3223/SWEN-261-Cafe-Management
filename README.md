@@ -96,3 +96,15 @@ Ali:
 US-004 (Pricing Packages – Backend)
 
 Assisted in frontend integration
+
+# Implementation Details
+
+Data is stored using ArrayList (in-memory storage) as required by the assignment
+
+No database is used & data resets when the application restarts
+
+Backend is implemented using Spring Boot with REST endpoints
+
+Frontend is implemented using Mustache templates
+
+Full integration between frontend and backend is achieved
