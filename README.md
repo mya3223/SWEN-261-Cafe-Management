@@ -26,11 +26,11 @@ The system allows for different types of users to interact with a cafe catalog, 
 
 # Technology Stack
 
-Backened: Java Spring
+Backend: Java Spring Boot
 
-Frontend: Angular 
+Frontend: Mustache (HTML templates)
 
-Database: Relational Database
+Database: None (ArrayList in-memory storage)
 
 Project Management: Scrum with [Trello](https://trello.com/invite/b/696f297c36e70018d3f233b2/ATTI19dfb0717a7b2a0b1992adfc04f799e111786B2D/swen-261-cafe-management)
 
@@ -73,28 +73,19 @@ US-009: Order Search and Filter
 Each team member contributed to both backend and frontend tasks as required:
 
 Meera:
-US-001 (Order Creation – Backend & Frontend)
+US-001 (Creation of Order) – Implemented backend (Order model, service, POST endpoint) and frontend (order creation form and integration)
 
 Syed:
-
-US-009 (Search & Filter – Backend)
-
+US-009 (Order Search and Filter) – Implemented backend (search and filter methods, endpoints) and frontend (search and filter interface)
 
 Mouza:
-
-US-002 (Backend support – order listing)
+US-002 (Viewing Orders) – Implemented backend (order retrieval logic) and frontend (display of active and completed orders)
 
 Francois:
-
-US-006 (Login – Backend)
-
-Assisted with testing and integration
+US-006 (User Login and Session – Optional) – Implemented backend (login logic) and frontend (login interface), and assisted in testing
 
 Ali:
-
-US-004 (Pricing Packages – Backend)
-
-Assisted in frontend integration
+US-004 (Viewing Pricing Packages) – Implemented backend (pricing model and service) and frontend (pricing display page)
 
 # Implementation Details
 
@@ -107,3 +98,11 @@ Backend is implemented using Spring Boot with REST endpoints
 Frontend is implemented using Mustache templates
 
 Full integration between frontend and backend is achieved
+
+# Key Features
+
+- Create and store new orders using a form
+- Display active and completed orders
+- Search and filter orders
+- View pricing packages
+- Basic login functionality (optional)
