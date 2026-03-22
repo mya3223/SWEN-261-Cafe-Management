@@ -1,9 +1,11 @@
 package com.example.swen261cafemanagement.controllers;
 
 import com.example.swen261cafemanagement.service.PricingService;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+@Controller
 public class PricingController {
 
     private final PricingService pricingService;

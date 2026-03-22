@@ -36,7 +36,7 @@ public class LoginController {
         if (password.equals(user.getPassword())) {
             return "dashboard";
         } else {
-            model.addAttribute("errorMsg", "Nom d’utilisateur ou mot de passe incorrect");
+            model.addAttribute("errorMsg", "email or password incorrect");
             return "login";
         }
     }
