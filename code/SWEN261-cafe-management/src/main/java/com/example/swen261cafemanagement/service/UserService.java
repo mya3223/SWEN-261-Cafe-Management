@@ -1,7 +1,7 @@
 package com.example.swen261cafemanagement.service;
 
-import org.springframework.stereotype.Service;
 import com.example.swen261cafemanagement.models.User;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 
