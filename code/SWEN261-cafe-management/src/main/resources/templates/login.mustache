@@ -6,11 +6,15 @@
 </head>
 <body>
 
-<form th:action="@{/login}" method="post">
+<form action="/login" method="post">
     <div><label> Email : <input type="text" name="email"/> </label></div>
     <div><label> Password: <input type="password" name="password"/> </label></div>
     <div><input type="submit" value="Sign In"/></div>
 </form>
-
+{{#errorMsg}}
+    <div style="color: red">
+        {{errorMsg}}
+    </div>
+{{/errorMsg}}
 </body>
 </html>
