@@ -1,7 +1,7 @@
-package com.example.assignment1.controllers;
+package com.example.swen261cafemanagement.controllers;
 
-import com.example.assignment1.models.Order;
-import com.example.assignment1.service.OrderService;
+import com.example.swen261cafemanagement.models.Order;
+import com.example.swen261cafemanagement.service.OrderService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;

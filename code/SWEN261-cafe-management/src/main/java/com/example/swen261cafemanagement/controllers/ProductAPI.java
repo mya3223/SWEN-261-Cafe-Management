@@ -5,16 +5,16 @@ import com.example.swen261cafemanagement.service.OrderService;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 
 import java.util.List;
 
 @RestController
 public class ProductAPI {
 
-    OrderService orderService;
+    private final OrderService orderService;
 
     public ProductAPI(OrderService orderService) {
         this.orderService = orderService;

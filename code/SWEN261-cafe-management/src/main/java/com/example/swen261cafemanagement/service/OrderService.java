@@ -1,6 +1,6 @@
-package com.example.assignment1.service;
+package com.example.swen261cafemanagement.service;
 
-import com.example.assignment1.models.Order;
+import com.example.swen261cafemanagement.models.Order;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;

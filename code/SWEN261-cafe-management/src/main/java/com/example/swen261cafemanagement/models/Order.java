@@ -1,4 +1,4 @@
-package com.example.assignment1.models;
+package com.example.swen261cafemanagement.models;
 
 import java.time.LocalDate;
 
