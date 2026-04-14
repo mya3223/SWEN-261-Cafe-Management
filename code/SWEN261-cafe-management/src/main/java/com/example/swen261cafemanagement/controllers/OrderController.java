@@ -48,14 +48,7 @@ public class OrderController {
         List<Order> active = orderService.getActiveOrders(orders);
         List<Order> completed = orderService.getCompletedOrders(orders);
 
-        for (int i = 0; i < orders.size(); i++) {
-            Order o = orders.get(i);
-            if (o.isCompleted()) {
-                completed.add(o);
-            } else {
-                active.add(o);
-            }
-        }
+
 
         model.addAttribute("activeOrders", active);
         model.addAttribute("completedOrders", completed);
