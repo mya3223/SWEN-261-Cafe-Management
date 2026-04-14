@@ -28,23 +28,8 @@ public class OrderController {
                          @RequestParam(required = false) String from,
                          @RequestParam(required = false) String to) {
 
-        List<Order> orders;
-
-        if (search != null && !search.isEmpty()) {
-            orders = orderService.searchByOrderId(search);
-            
-        } else if (status != null && !status.isEmpty()) {
-            orders = orderService.filterByStatus(status);
-            
-        } else if (from != null && to != null && !from.isEmpty() && !to.isEmpty()) {
-            LocalDate fromDate = LocalDate.parse(from);
-            LocalDate toDate = LocalDate.parse(to);
-            orders = orderService.filterByDateRange(fromDate, toDate);
-            
-        } else {
-            orders = orderService.getAllOrders();
-        }
-
+        
+        List<Order> orders = orderService.getFilteredOrders(search, status, from, to);
         List<Order> active = orderService.getActiveOrders(orders);
         List<Order> completed = orderService.getCompletedOrders(orders);
 
