@@ -28,6 +28,23 @@ public class OrderService {
     return active;
 }
 
+    public ArrayList<Order> getFilteredOrders(String search, String status, String from, String to) {
+    if (search != null && !search.isEmpty()) {
+        return searchByOrderId(search);
+
+    } else if (status != null && !status.isEmpty()) {
+        return filterByStatus(status);
+
+    } else if (from != null && to != null && !from.isEmpty() && !to.isEmpty()) {
+        LocalDate fromDate = LocalDate.parse(from);
+        LocalDate toDate = LocalDate.parse(to);
+        return filterByDateRange(fromDate, toDate);
+
+    } else {
+        return getAllOrders();
+    }
+}
+    
     public ArrayList<Order> getCompletedOrders(List<Order> orders) {
     ArrayList<Order> completed = new ArrayList<>();
 
