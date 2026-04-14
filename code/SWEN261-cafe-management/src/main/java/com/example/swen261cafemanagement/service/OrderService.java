@@ -87,4 +87,28 @@ public class OrderService {
         }
         return result;
     }
+    public boolean updateOrderStatus(String orderId, String newStatus) {
+
+    for (Order order : orders) {
+
+        if (order.getOrderId().equals(orderId)) {
+
+            String currentStatus = order.getStatus();
+
+            if (currentStatus.equals("pending") && newStatus.equals("in-progress")) {
+                order.setStatus(newStatus);
+                return true;
+            }
+
+            if (currentStatus.equals("in-progress") && newStatus.equals("delivered")) {
+                order.setStatus(newStatus);
+                return true;
+            }
+
+            return false;
+        }
+    }
+
+    return false;
+}
 }
