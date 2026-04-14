@@ -9,6 +9,9 @@ public class Order {
     private String status;
     private double totalPrice;
     private LocalDate createdAt;
+    private String pending;
+    private String in-progress;
+    private String delivered;
 
     public Order() {}
 
