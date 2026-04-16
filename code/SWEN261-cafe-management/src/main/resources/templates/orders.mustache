@@ -11,6 +11,9 @@
 <body>
 
 <h1>Orders</h1>
+{{#errorMsg}}
+<p style="color:red;">{{errorMsg}}</p>
+{{/errorMsg}}
 
 <form action="/orders" method="get">
 
@@ -40,20 +43,20 @@
 <h2>Active Orders</h2>
 {{#activeOrders}}
 
-<p>
 
+<p>
 Order ID: {{orderId}} <br>
 Order Status: {{status}} <br>
-
 </p>
+
 
 <hr>
 {{/activeOrders}}
 
 <h2>Completed Orders</h2>
 {{#completedOrders}}
-
 <p>
+<strong>Order completed successfully</strong><br>
 
 Order ID: {{orderId}} <br>
 Order Status: {{status}}
