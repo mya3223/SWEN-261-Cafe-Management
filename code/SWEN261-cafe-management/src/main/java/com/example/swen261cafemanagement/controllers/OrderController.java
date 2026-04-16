@@ -40,6 +40,7 @@ public class OrderController {
         model.addAttribute("hasOrders", !orders.isEmpty());
         model.addAttribute("noOrders", orders.isEmpty());
         model.addAttribute("resultCount", orders.size());
+        model.addAttribute("successMsg", "Status updated successfully");
         
         // template name WITHOUT extension
         return "orders";
