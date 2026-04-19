@@ -86,6 +86,22 @@ US-006 (User Login and Session – Optional) – Implemented backend (login logi
 
 Ali:
 US-004 (Viewing Pricing Packages) – Implemented backend (pricing model and service) and frontend (pricing display page)
+
+------------------------------------------------------------------------------------------------------------------------
+#Work Distribution (Assignment 3)
+
+US-003: Tracking Order Status (Meera)
+
+US-012: Low Stock Alerts (Meera)
+
+US-005: Selecting Pricing Packages (Syed)
+
+US-007: Role Based Access Control (Francois)
+
+US-008: Order Cancellation Before Preparation (Ali)
+
+US-011: Inventory Item Management (Mouza)
+
 ------------------------------------------------------------------------------------------------------------------------------------------
 Meera:
 
