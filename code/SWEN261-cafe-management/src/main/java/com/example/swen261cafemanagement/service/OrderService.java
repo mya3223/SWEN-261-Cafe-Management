@@ -88,6 +88,17 @@ public class OrderService {
         }
         return result;
     }
+
+    public boolean createOrder(Order order) {
+        if (order.getItems() == null || order.getItems().isEmpty()) {
+        return false;  // validation = business logic
+    }
+    order.setOrderId(String.valueOf(System.currentTimeMillis()));
+    order.setStatus("pending");  
+    orders.add(order);
+    return true;
+}
+    
     public boolean updateOrderStatus(String orderId, String newStatus) {
 
     for (Order order : orders) {
