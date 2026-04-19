@@ -72,4 +72,11 @@ public class Order {
     public void setCreatedAt(LocalDate createdAt) {
         this.createdAt = createdAt; 
     }
+    public boolean isPending() {
+    return status.equalsIgnoreCase("pending");
+}
+
+    public boolean isCompleted() {
+    return status.equalsIgnoreCase("delivered") || status.equalsIgnoreCase("cancelled");
+}
 }
