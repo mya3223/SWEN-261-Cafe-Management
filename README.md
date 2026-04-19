@@ -86,6 +86,23 @@ US-006 (User Login and Session – Optional) – Implemented backend (login logi
 
 Ali:
 US-004 (Viewing Pricing Packages) – Implemented backend (pricing model and service) and frontend (pricing display page)
+------------------------------------------------------------------------------------------------------------------------------------------
+Meera:
+
+US-003 (Tracking Order Status) - Implemented frontend and backend
+US-012 (Low Stock Alerts) - Implemented frontend and backend
+
+Syed:
+US-005 (Selecting Pricing Packages) - Implemented frontend and backend
+
+Francois:
+US-007 (Role Based Access Control) - Implemented frontend and backend
+
+Ali:
+US-008 (Order Cancellation Before Preparation) - Implemented frontend and backend
+
+Mouza:
+US-011 (Inventory Item Management) - Implemented frontend and backend
 
 # Implementation Details
 
@@ -99,10 +116,19 @@ Frontend is implemented using Mustache templates
 
 Full integration between frontend and backend is achieved
 
-# Key Features
-
+# Key Features 
+#Assignment 2
 - Create and store new orders using a form
 - Display active and completed orders
 - Search and filter orders
 - View pricing packages
 - Basic login functionality (optional)
+
+- #Assignment 3
+- Full CRUD (Create, Read, Update, Delete) for all entities
+- Simulated entity relationships using in-memory ArrayList storage
+- REST API returning JSON responses
+- Low stock alert system with dynamic inventory updates
+- Order status tracking and cancellation
+- Role-based access control (admin/staff)
+- Feature branch Git workflow with pull requests
