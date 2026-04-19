@@ -92,7 +92,6 @@ public class OrderController {
         inventoryService.addOrUpdateItem(name, quantity, threshold);
         return "redirect:/orders";
     }
-}
 
 @PostMapping("/orders/{id}/delete")
 public String cancelOrder(@PathVariable("id") String id, Model model) {
