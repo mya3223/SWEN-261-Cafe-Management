@@ -123,3 +123,27 @@ public class OrderService {
         return false;
     }
 }
+
+public Order findById(String orderId) {
+    for (Order order : orders) {
+        if (order.getOrderId().equals(orderId)) {
+            return order;
+        }
+    }
+    return null;
+}
+
+public boolean canBeCancelled(Order order) {
+    return order != null && "pending".equalsIgnoreCase(order.getStatus());
+}
+
+public boolean cancelOrder(String orderId) {
+    Order order = findById(orderId);
+
+    if (order == null || !canBeCancelled(order)) {
+        return false;
+    }
+
+    order.setStatus("cancelled");
+    return true;
+}
