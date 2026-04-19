@@ -10,9 +10,7 @@ import java.util.List;
 @Service
 public class OrderService {
     private ArrayList<Order> orders = new ArrayList<>();
-    public void createOrder(Order order) {
-        orders.add(order);
-    }
+    
     public ArrayList<Order> getAllOrders() {
         return orders;
     }
