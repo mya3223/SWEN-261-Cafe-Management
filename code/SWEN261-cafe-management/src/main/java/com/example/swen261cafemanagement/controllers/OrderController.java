@@ -33,6 +33,13 @@ public class OrderController {
         List<Order> active = orderService.getActiveOrders(orders);
         List<Order> completed = orderService.getCompletedOrders(orders);
 
+        List<Items> lowStock = inventoryService.getLowStockItems();
+
+        model.addAttribute("lowStockItems", lowStock);
+        model.addAttribute("lowStockCount", lowStock.size());
+        model.addAttribute("hasLowStock", !lowStock.isEmpty());
+        model.addAttribute("noLowStock", lowStock.isEmpty());
+       
 
 
         model.addAttribute("activeOrders", active);
@@ -42,7 +49,6 @@ public class OrderController {
         model.addAttribute("resultCount", orders.size());
         model.addAttribute("successMsg", "Status updated successfully");
         
-        // template name WITHOUT extension
         return "orders";
     }
     @PostMapping("/saveorder")
@@ -73,4 +79,6 @@ public class OrderController {
 
     return "redirect:/orders";
 }
+    @Autowired
+    private InventoryService inventoryService;
 }
