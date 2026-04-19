@@ -61,10 +61,6 @@ public class Order {
         this.orderId = orderId;
     }
 
-    public boolean isCompleted() {
-        return "Delivered".equalsIgnoreCase(status);
-    }
-
     public LocalDate getCreatedAt() {
         return createdAt;
     }
