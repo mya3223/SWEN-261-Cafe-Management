@@ -16,9 +16,11 @@ import java.util.List;
 public class OrderController {
 
     private final OrderService orderService;
+    private final InventoryService inventoryService;
 
-    public OrderController(OrderService orderService) {
+    public OrderController(OrderService orderService, InventoryService inventoryService) {
         this.orderService = orderService;
+        this.inventoryService = inventoryService;
     }
 
     @RequestMapping("/orders")
@@ -79,6 +81,4 @@ public class OrderController {
 
     return "redirect:/orders";
 }
-    @Autowired
-    private InventoryService inventoryService;
 }
