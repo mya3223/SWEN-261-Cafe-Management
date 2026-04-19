@@ -1,6 +1,7 @@
 package com.example.swen261cafemanagement.controllers;
 
-import com.example.swen261cafemanagement.models.Item;
+import com.example.swen261cafemanagement.models.Items;
+import com.example.swen261cafemanagement.models.Items;
 import com.example.swen261cafemanagement.service.ItemService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,7 +30,7 @@ public class ItemController {
                           @RequestParam double price,
                           @RequestParam int quantity) {
 
-        service.addItem(new Item(null, name, price, quantity));
+        service.addItem(new Items(null, name, price, quantity));
         return "redirect:/items";
     }
 

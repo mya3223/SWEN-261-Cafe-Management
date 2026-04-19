@@ -1,14 +1,14 @@
 package com.example.swen261cafemanagement.models;
 
-public class Item {
+public class Items {
     private Long id;
     private String name;
     private double price;
     private int quantity;
 
-    public Item() {}
+    public Items() {}
 
-    public Item(Long id, String name, double price, int quantity) {
+    public Items(Long id, String name, double price, int quantity) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -21,9 +21,7 @@ public class Item {
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
 
-    public double getPrice() { return price; }
-    public void setPrice(double price) { this.price = price; }
-
-    public int getQuantity() { return quantity; }
-    public void setQuantity(int quantity) { this.quantity = quantity; }
+    public boolean isLowStock() {
+        return this.quantity < 0;
+    }
 }
