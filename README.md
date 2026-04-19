@@ -139,7 +139,8 @@ Full integration between frontend and backend is achieved
 - Search and filter orders
 - View pricing packages
 - Basic login functionality (optional)
-
+- 
+  ------------------------------------------------------------------
 - #Assignment 3
 - Full CRUD (Create, Read, Update, Delete) for all entities
 - Simulated entity relationships using in-memory ArrayList storage
