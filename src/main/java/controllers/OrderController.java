@@ -2,10 +2,13 @@ package com.example.assignment1.controllers;
 
 import com.example.assignment1.models.Order;
 import com.example.assignment1.service.OrderService;
+import models.Items;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import service.InventoryService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,8 +31,6 @@ public class OrderController {
         List<Order> active = new ArrayList<>();
         List<Order> completed = new ArrayList<>();
 
-
-
         for (int i = 0; i < orders.size(); i++) {
             Order o = orders.get(i);
             if (o.isCompleted()) {
@@ -39,20 +40,35 @@ public class OrderController {
             }
         }
 
+        List<Items> lowStock = inventoryService.getLowStockItems();
+
+        model.addAttribute("lowStockItems", lowStock);
+        model.addAttribute("lowStockCount", lowStock.size());
+        model.addAttribute("hasLowStock", !lowStock.isEmpty());
+        model.addAttribute("noLowStock", lowStock.isEmpty());
+
         model.addAttribute("activeOrders", active);
         model.addAttribute("completedOrders", completed);
         model.addAttribute("hasOrders", !orders.isEmpty());
 
-        // template name WITHOUT extension
+
         return "orders";
     }
     @PostMapping("/saveorder")
     public String saveOrder(Order order) {
+
+        if (order.getItems() == null || order.getItems().isEmpty()) {
+            return "redirect:/orders";
+        }
+
         order.setOrderId(String.valueOf(System.currentTimeMillis()));
         order.setStatus("pending");
-        order.setItems(order.getItems());
-        order.setTotalPrice(order.getTotalPrice());
+
         orderService.createOrder(order);
+
         return "redirect:/orders";
     }
+
+    @Autowired
+    private InventoryService inventoryService;
 }

@@ -9,7 +9,7 @@ public class Order {
 
     public Order() {}
 
-    public Order(String orderId, String orderStatus, String orderMessage, String items, String status, double totalPrice) {
+    public Order(String orderId, String orderMessage, String items, String status, double totalPrice) {
         this.orderId = orderId;
         this.orderMessage = orderMessage;
         this.items = items;
@@ -21,7 +21,7 @@ public class Order {
         return items;
     }
 
-    public double getTotalPrice() {
+    public Double getTotalPrice() {
         return totalPrice;
     }
 
