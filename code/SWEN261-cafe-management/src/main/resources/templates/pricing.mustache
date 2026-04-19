@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>Pricing Packages</title>
     <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
         body {
             font-family: Arial, sans-serif;
             background-color: #f5f0eb;
@@ -11,79 +13,275 @@
             text-align: center;
         }
 
-        h1 {
-            color: #5c3d2e;
+        h1 { color: #5c3d2e; margin-bottom: 8px; }
+        .subtitle { color: #888; margin-bottom: 30px; }
+
+        nav { margin-bottom: 24px; }
+        nav a {
+            margin: 0 12px;
+            color: #e67e22;
+            text-decoration: none;
+            font-weight: bold;
         }
+        nav a:hover { text-decoration: underline; }
 
         .plans-container {
-            text-align: center;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
         }
 
         .card {
-            display: inline-block; /* allows cards to sit next to each other instead of stacking vertically */
-            margin: 10px;
+            background: white;
+            border: 2px solid #ddd;
+            border-radius: 12px;
+            padding: 24px;
+            width: 260px;
+            text-align: left;
+            transition: box-shadow 0.2s;
         }
-
-        .recommended {
+        .card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
+        .card.recommended {
             border-color: #e67e22;
             background-color: #fff8f2;
         }
 
         .badge {
+            display: inline-block;
             background-color: #e67e22;
             color: white;
-            padding: 5px 10px;
+            padding: 4px 10px;
             border-radius: 15px;
             font-size: 12px;
+            margin-bottom: 10px;
         }
+
+        .card h2 { color: #5c3d2e; font-size: 18px; margin-bottom: 6px; }
+        .card p { color: #666; font-size: 13px; margin-bottom: 10px; }
 
         .price {
-            font-size: 24px;
+            font-size: 22px;
             font-weight: bold;
             color: #e67e22;
-            margin: 10px 0;
+            margin-bottom: 14px;
         }
 
-        ul {
-            padding-left: 20px;
+        .features { list-style: none; padding: 0; margin-bottom: 18px; }
+        .features li {
+            font-size: 13px;
+            color: #444;
+            padding: 4px 0;
+            border-bottom: 1px solid #f0e8e0;
         }
+        .features li::before { content: "✓ "; color: #e67e22; font-weight: bold; }
 
-        details {
-            margin-top: 10px;
+        .select-btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #e67e22;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
         }
+        .select-btn:hover { background-color: #cf6d17; }
+
+        /* Modal */
+        .overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.45);
+            z-index: 100;
+            align-items: center;
+            justify-content: center;
+        }
+        .overlay.active { display: flex; }
+
+        .modal {
+            background: white;
+            border-radius: 12px;
+            padding: 32px 28px;
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+        }
+        .modal h2 { color: #5c3d2e; margin-bottom: 10px; }
+        .modal p { color: #555; font-size: 14px; margin-bottom: 6px; }
+        .modal .plan-name { font-weight: bold; color: #e67e22; font-size: 17px; margin: 10px 0; }
+        .modal .plan-price { color: #888; font-size: 13px; margin-bottom: 20px; }
+
+        .modal-buttons { display: flex; gap: 12px; justify-content: center; }
+
+        .btn-confirm {
+            padding: 10px 24px;
+            background: #e67e22;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .btn-confirm:hover { background: #cf6d17; }
+
+        .btn-cancel {
+            padding: 10px 24px;
+            background: #eee;
+            color: #555;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .btn-cancel:hover { background: #ddd; }
+
+        /* Success Banner */
+        .success-banner {
+            display: none;
+            background: #eafaf1;
+            border: 2px solid #27ae60;
+            border-radius: 12px;
+            padding: 24px;
+            max-width: 520px;
+            margin: 30px auto 0;
+            text-align: left;
+        }
+        .success-banner.active { display: block; }
+        .success-banner h3 { color: #27ae60; margin-bottom: 10px; }
+        .success-banner p { color: #444; font-size: 14px; margin-bottom: 6px; }
+        .success-banner a {
+            display: inline-block;
+            margin-top: 14px;
+            padding: 10px 20px;
+            background: #27ae60;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .success-banner a:hover { background: #1e8449; }
     </style>
 </head>
 <body>
 
+<nav>
+    <a href="/dashboard">Dashboard</a>
+    <a href="/orders">Orders</a>
+    <a href="/items">Items</a>
+    <a href="/pricing">Pricing</a>
+    <a href="/logout">Logout</a>
+</nav>
+
 <h1>Our Pricing Packages</h1>
-<p>Choose the specific plan that works best for your cafe.</p>
+<p class="subtitle">Choose the specific plan that works best for your cafe.</p>
 
-<div class="plans-container">
-    {{#plans}}
-        <div class="card {{#recommended}}recommended{{/recommended}}">
+<div id="loading" style="color:#aaa; margin-top:40px;">Loading plans...</div>
+<div id="error" style="color:#c0392b; display:none;"></div>
 
-            {{#recommended}}
-                <span class="badge">Recommended</span>
-            {{/recommended}}
+<div class="plans-container" id="plansContainer"></div>
 
-            <h2>{{name}}</h2>
-            <p>{{description}}</p>
-            <div class="price">AED {{price}} / month</div>
-
-            <ul>
-                {{#features}}
-                    <li>{{.}}</li>
-                {{/features}}
-            </ul>
-
-            <details>
-                <summary>Learn More</summary>
-                <p>This package is designed to support cafés based on their size, order volume, and operational needs.</p>
-            </details>
-
-        </div>
-    {{/plans}}
+<!-- Success Banner -->
+<div class="success-banner" id="successBanner">
+    <h3>✅ Plan Selected!</h3>
+    <p><strong>Package:</strong> <span id="successPlanName"></span> — AED <span id="successPrice"></span> / month</p>
+    <p style="margin-top: 10px; color: #27ae60; font-weight: bold;">
+        Your selection has been confirmed. Please proceed to payment to activate your plan.
+    </p>
+    <a href="/dashboard">Go to Dashboard</a>
 </div>
+
+<!-- Confirmation Modal -->
+<div class="overlay" id="overlay">
+    <div class="modal">
+        <h2>Are you sure?</h2>
+        <p>You are about to select:</p>
+        <div class="plan-name" id="modalPlanName"></div>
+        <div class="plan-price">AED <span id="modalPlanPrice"></span> / month</div>
+        <p style="font-size:13px; color:#888; margin-bottom:20px;">
+            This will activate the plan and link it to your account.
+        </p>
+        <div class="modal-buttons">
+            <button class="btn-cancel" onclick="closeModal()">Cancel</button>
+            <button class="btn-confirm" onclick="confirmSelection()">Yes, Select This Plan</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    let pendingPlanId = null;
+
+    async function loadPlans() {
+        try {
+            const res = await fetch('/api/pricing');
+            if (!res.ok) throw new Error();
+            const plans = await res.json();
+            document.getElementById('loading').style.display = 'none';
+            renderPlans(plans);
+        } catch {
+            document.getElementById('loading').style.display = 'none';
+            const err = document.getElementById('error');
+            err.style.display = 'block';
+            err.textContent = 'Could not load pricing plans. Please try again later.';
+        }
+    }
+
+    function renderPlans(plans) {
+        const container = document.getElementById('plansContainer');
+        plans.forEach(plan => {
+            const card = document.createElement('div');
+            card.className = 'card' + (plan.recommended ? ' recommended' : '');
+            card.innerHTML = `
+                ${plan.recommended ? '<span class="badge">⭐ Recommended</span>' : ''}
+                <h2>${plan.name}</h2>
+                <p>${plan.description}</p>
+                <div class="price">AED ${plan.price.toFixed(2)} / month</div>
+                <ul class="features">${plan.features.map(f => `<li>${f}</li>`).join('')}</ul>
+                <button class="select-btn" onclick="openModal(${plan.id}, '${plan.name}', ${plan.price})">
+                    Select This Plan
+                </button>
+            `;
+            container.appendChild(card);
+        });
+    }
+
+    function openModal(planId, planName, planPrice) {
+        pendingPlanId = planId;
+        document.getElementById('modalPlanName').textContent = planName;
+        document.getElementById('modalPlanPrice').textContent = planPrice.toFixed(2);
+        document.getElementById('overlay').classList.add('active');
+    }
+
+    function closeModal() {
+        pendingPlanId = null;
+        document.getElementById('overlay').classList.remove('active');
+    }
+
+    function confirmSelection() {
+        if (pendingPlanId === null) return;
+
+        const planName = document.getElementById('modalPlanName').textContent;
+        const planPrice = document.getElementById('modalPlanPrice').textContent;
+
+        closeModal();
+
+        document.getElementById('successPlanName').textContent = planName;
+        document.getElementById('successPrice').textContent = planPrice;
+
+        const banner = document.getElementById('successBanner');
+        banner.classList.add('active');
+        banner.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    document.getElementById('overlay').addEventListener('click', function(e) {
+        if (e.target === this) closeModal();
+    });
+
+    loadPlans();
+</script>
 
 </body>
 </html>
