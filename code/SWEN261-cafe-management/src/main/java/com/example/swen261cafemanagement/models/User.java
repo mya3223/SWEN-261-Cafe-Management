@@ -4,11 +4,13 @@ public class User {
     public String name;
     public String email;
     public String password;
+    private Integer selectedPlanId;
 
     public User(String name, String email, String password_hashed) {
         this.name = name;
         this.email = email;
         this.password = password_hashed;
+        this.selectedPlanId = null;
     }
 
     public String getName() {
@@ -33,5 +35,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Integer getSelectedPlanId() {
+        return selectedPlanId;
+    }
+
+    public void setSelectedPlanId(Integer selectedPlanId) {
+        this.selectedPlanId = selectedPlanId;
     }
 }
