@@ -1,7 +1,6 @@
 package com.example.swen261cafemanagement.service;
 
 import com.example.swen261cafemanagement.models.Items;
-import com.example.swen261cafemanagement.models.Items;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -16,19 +15,18 @@ public class ItemService {
         return new ArrayList<>(items.values());
     }
 
-    public Items addItem(Items item) {
-        item.setId(idCounter++);
-        items.put(item.getId(), item);
-        return item;
+    public void addItem(Items item) {
+//        item.setId(idCounter++);
+//        items.put(item.getId(), item);
     }
 
-    public Items updateItem(Long id, Items updatedItem) {
-        if (!items.containsKey(id)) return null;
-
-        updatedItem.setId(id);
-        items.put(id, updatedItem);
-        return updatedItem;
-    }
+//    public Items updateItem(Long id, Items updatedItem) {
+//        if (!items.containsKey(id)) return null;
+//
+//        updatedItem.setId(id);
+//        items.put(id, updatedItem);
+//        return updatedItem;
+//    }
 
     public void deleteItem(Long id) {
         items.remove(id);

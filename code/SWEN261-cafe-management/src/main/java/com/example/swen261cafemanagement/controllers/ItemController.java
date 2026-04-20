@@ -30,7 +30,7 @@ public class ItemController {
                           @RequestParam double price,
                           @RequestParam int quantity) {
 
-        service.addItem(new Items(null, name, price, quantity));
+        service.addItem(new Items(name, (int) price, quantity));
         return "redirect:/items";
     }
 

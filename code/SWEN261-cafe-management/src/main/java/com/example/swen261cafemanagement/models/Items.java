@@ -12,11 +12,15 @@ public class Items {
     }
 
     public void setQuantity(int quantity) { this.quantity = quantity; }
+
     public void setThreshold(int threshold) { this.threshold = threshold; }
+
     public String getName()
     { return name; }
+
     public int getQuantity()
     { return quantity; }
+
     public int getThreshold() {
         return threshold; }
 
