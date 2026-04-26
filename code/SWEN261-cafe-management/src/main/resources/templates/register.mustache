@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register — Cafe Management</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            font-family: 'DM Sans', sans-serif;
+            background-color: #f5f0eb;
+        }
+
+        /* Left decorative panel */
+        .side-panel {
+            width: 45%;
+            background-color: #3b2314;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .side-panel::before {
+            content: '';
+            position: absolute;
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            background: rgba(230, 126, 34, 0.15);
+            top: -80px;
+            left: -80px;
+        }
+
+        .side-panel::after {
+            content: '';
+            position: absolute;
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: rgba(230, 126, 34, 0.1);
+            bottom: -60px;
+            right: -40px;
+        }
+
+        .side-panel .logo-icon {
+            font-size: 56px;
+            margin-bottom: 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .side-panel h1 {
+            font-family: 'Playfair Display', serif;
+            color: #fff;
+            font-size: 32px;
+            text-align: center;
+            line-height: 1.3;
+            position: relative;
+            z-index: 1;
+        }
+
+        .side-panel p {
+            color: rgba(255,255,255,0.55);
+            margin-top: 14px;
+            font-size: 14px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .divider-line {
+            width: 40px;
+            height: 2px;
+            background-color: #e67e22;
+            margin: 20px auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Right login form */
+        .login-panel {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 40px;
+        }
+
+        .login-box {
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .login-box h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            color: #3b2314;
+            margin-bottom: 6px;
+        }
+
+        .login-box .subtitle {
+            color: #9e8070;
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        .field {
+            margin-bottom: 16px;
+        }
+
+        .field label {
+            display: block;
+            font-size: 13px;
+            font-weight: 500;
+            color: #5c3d2e;
+            margin-bottom: 5px;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .field input {
+            width: 100%;
+            padding: 11px 14px;
+            border: 2px solid #ddd0c8;
+            border-radius: 8px;
+            font-size: 15px;
+            font-family: 'DM Sans', sans-serif;
+            background-color: #fff;
+            color: #3b2314;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .field input:focus {
+            border-color: #e67e22;
+        }
+
+        .field input::placeholder {
+            color: #c4b0a5;
+        }
+
+        .row-fields {
+            display: flex;
+            gap: 16px;
+        }
+
+        .row-fields .field {
+            flex: 1;
+        }
+
+        /* Error message */
+        .error-box {
+            background-color: #fdf0ec;
+            border: 1px solid #f0c4b4;
+            border-left: 4px solid #e74c3c;
+            border-radius: 8px;
+            padding: 12px 16px;
+            margin-bottom: 20px;
+            color: #c0392b;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background-color: #3b2314;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 500;
+            cursor: pointer;
+            margin-top: 8px;
+            transition: background-color 0.2s, transform 0.1s;
+        }
+
+        .submit-btn:hover {
+            background-color: #e67e22;
+        }
+
+        .submit-btn:active {
+            transform: scale(0.98);
+        }
+
+        /* Footer Link */
+        .form-footer {
+            margin-top: 24px;
+            text-align: center;
+            font-size: 14px;
+            color: #5c3d2e;
+        }
+
+        .form-footer a {
+            color: #e67e22;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .form-footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 700px) {
+            .side-panel { display: none; }
+            body { background-color: #f5f0eb; }
+            .row-fields { flex-direction: column; gap: 0; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="side-panel">
+    <div class="logo-icon">✨</div>
+    <h1>Join the Team</h1>
+    <div class="divider-line"></div>
+    <p>Create an account to start managing orders, tracking inventory, and viewing reports.</p>
+</div>
+
+<div class="login-panel">
+    <div class="login-box">
+
+        <h2>Create an account</h2>
+        <p class="subtitle">Fill in your details to get started</p>
+
+        {{#errorMsg}}
+            <div class="error-box">
+                ⚠ {{errorMsg}}
+            </div>
+        {{/errorMsg}}
+
+        <form action="/register" method="post">
+
+            <div class="field">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="" required />
+            </div>
+
+            <div class="row-fields">
+                <div class="field">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="you@example.com" required />
+                </div>
+            </div>
+
+            <div class="field">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="••••••••" required />
+            </div>
+
+            <div class="field">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="••••••••" required />
+            </div>
+
+            <input class="submit-btn" type="submit" value="Sign Up" />
+        </form>
+
+        <div class="form-footer">
+            Already have an account? <a href="/login">Sign in</a>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
