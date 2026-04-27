@@ -50,6 +50,27 @@ public class UserService {
            User test2 = new User("test user2","test@test.com", hash("password"));
            createUser(test_user);
            createUser(test2);
+
+           User owner = new User("Owner User", "owner@gmail.com", hash("owner123"), "OWNER");
+           User staff = new User("Staff User", "staff@gmail.com", hash("staff123"), "STAFF");
+           createUser(owner);
+           createUser(staff);
+        }
+
+        public String createStaff(String name, String email, String password, String role) {
+
+            if (findByUserByEmail(email) != null) {
+                return "Email already exists.";
+            }
+
+            if (!role.equals("STAFF") && !role.equals("MANAGER")) {
+                return "Invalid role.";
+            }
+
+            User staff = new User(name, email, hash(password), role);
+            createUser(staff);
+
+            return null;
         }
 
 
