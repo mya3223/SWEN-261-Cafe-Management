@@ -19,17 +19,12 @@ public class ItemController {
 
     // VIEW PAGE
     @GetMapping
-    public String viewItems(Model model, HttpSession session) {
-        User user = (User) session.getAttribute("loggedInUser");
-        if (user == null || user.getRole() == null || !user.getRole().equals("OWNER")) {
-            model.addAttribute("errorMsg", "You do not have access management of items.");
-            return "dashboard";
-        }
+    public String viewItems(Model model) {
+
         model.addAttribute("items", service.getAllItems());
         return "items";
     }
 
-    // ADD ITEM
     @PostMapping("/add")
     public String addItem(@RequestParam String name,
                           @RequestParam double price,
