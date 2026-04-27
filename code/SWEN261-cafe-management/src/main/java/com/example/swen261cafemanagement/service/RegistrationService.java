@@ -35,7 +35,7 @@ public class RegistrationService {
 
         String hashed = hash(pass);
 
-        User newUser = new User(name, email, hashed, "STAFF");
+        User newUser = new User(name, email, hashed, "OWNER");
         userService.createUser(newUser);
 
         return null;

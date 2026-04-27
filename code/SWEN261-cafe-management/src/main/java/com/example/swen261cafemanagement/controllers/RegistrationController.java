@@ -31,6 +31,6 @@ public class RegistrationController {
             return "register";
         }
 
-        return "redirect:/login?success=true";
+        return "redirect:/pricing?success=true";
     }
 }
