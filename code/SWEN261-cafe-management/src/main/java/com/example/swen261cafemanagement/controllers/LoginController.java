@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class LoginController {
@@ -23,8 +24,10 @@ public class LoginController {
     }
 
     @PostMapping("/login")
-    public String login(@RequestParam String email, @RequestParam String password, Model model) {
+    public String login(@RequestParam String email, @RequestParam String password, Model model, HttpSession session) {
         if (userService.authenticate(email, password)) {
+            User user = userService.findByUserByEmail(email);
+            session.setAttribute("loggedInUser", user);
             return "redirect:/dashboard"; // Redirection propre
         } else {
             model.addAttribute("errorMsg", "Email or password incorrect");
