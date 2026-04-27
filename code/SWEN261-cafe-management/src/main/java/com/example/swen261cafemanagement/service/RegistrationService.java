@@ -13,6 +13,7 @@ public class RegistrationService {
     public RegistrationService(UserService userService) {
         this.userService = userService;
     }
+
     private String hash(String pass) {
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");

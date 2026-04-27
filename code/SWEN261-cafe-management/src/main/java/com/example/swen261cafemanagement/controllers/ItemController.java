@@ -1,7 +1,7 @@
 package com.example.swen261cafemanagement.controllers;
 
-import com.example.swen261cafemanagement.models.Items;
-import com.example.swen261cafemanagement.models.Items;
+import com.example.swen261cafemanagement.models.User;
+import jakarta.servlet.http.HttpSession;
 import com.example.swen261cafemanagement.service.ItemService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,7 +19,12 @@ public class ItemController {
 
     // VIEW PAGE
     @GetMapping
-    public String viewItems(Model model) {
+    public String viewItems(Model model, HttpSession session) {
+        User user = (User) session.getAttribute("loggedInUser");
+        if (user == null || user.getRole() == null || !user.getRole().equals("OWNER")) {
+            model.addAttribute("errorMsg", "You do not have access management of items.");
+            return "dashboard";
+        }
         model.addAttribute("items", service.getAllItems());
         return "items";
     }
