@@ -20,10 +20,10 @@ public class StaffController {
     public String showStaffPage(HttpSession session, Model model) {
         User user = (User) session.getAttribute("loggedInUser");
 
-        if (user == null || !user.getRole().equals("OWNER")) {
-            model.addAttribute("errorMsg", "Only owner can access staff creation.");
-            return "dashboard";
-        }
+    if (user == null || user.getRole() == null || !user.getRole().equals("OWNER")) {
+        model.addAttribute("errorMsg", "You do not have access to staff accounts.");
+        return "dashboard";
+    }
 
         model.addAttribute("users", userService.getAllUsers());
         return "staff";
